@@ -1,74 +1,60 @@
+package p1;
 
-class Faculty{
-    int  facultyid;
-    float salary;
+class OneBHK{
+    float roomArea,hallArea,price;
+    OneBHK()
+    {
+        roomArea=5500;
+        hallArea=9900;
+        price=200000;
+
+    }
+    OneBHK(float a,float b,float c){
+        this.roomArea=a;
+        this.hallArea=b;
+        this.price=c;
+    }
+    void show()
+    {
+        System.out.println("RoomArea="+roomArea);
+        System.out.println("HallArea="+hallArea);
+        System.out.println("Price="+price);
+    }
+
 
 }
-class FullTimeFaculty extends Faculty{
-    float basic;
-    float allowance;
-    FullTimeFaculty(int x ,float y,float z)
-    {
-        facultyid=x;
-        basic=y;
-        allowance=z;
+class TwoBHK extends OneBHK{
+    float room2Area;
+    TwoBHK(){
+        super();
+        room2Area=5500;
     }
-    float salary()
-    {
-        salary=basic+allowance;
-        return salary;
+    TwoBHK(float x,float y ,float z ,float w){
+        super(x, y, z);
+        this.room2Area=w;
     }
-    void displayfull()
-    {
-        System.out.println("FullTimeFaculty\n");
-        System.out.println("Id=" +facultyid);
-        System.out.println("Basicsalary=" +basic);
-        System.out.println("Allowance=" +allowance);
-        System.out.println("Salary =" +salary());
+    void show(){
+        super.show();
+        System.out.println("Room2Area="+room2Area);
         System.out.println("\n");
 
     }
 
-}
-class PartTimeFaculty extends Faculty{
-    int hour;
-    float rate;
-    PartTimeFaculty(int a,int b,float c){
-        facultyid=a;
-        hour=b;
-        rate=c;
 
-    }
-    float salary()
-    {
-
-        salary=hour*rate;
-        return salary;
-    }
-    void displaypart()
-    {
-        System.out.println("PartTimeFaculty\n");
-        System.out.println("Id="+facultyid);
-        System.out.println("Hour=" +hour);
-        System.out.println("Rate=" +rate);
-        System.out.println("Salary=" +salary());
-        System.out.println("\n");
-    }
 }
+
 
 public class DriverClass {
-    public static void main(String[] a){
-        FullTimeFaculty f1=new FullTimeFaculty(1504,10000,5000);
-        f1.displayfull();
-        FullTimeFaculty f2=new FullTimeFaculty(1505,20000,6000);
-        f2.displayfull();
-        PartTimeFaculty f3=new PartTimeFaculty(2001,10,1000);
-        f3.displaypart();
-        PartTimeFaculty f4=new PartTimeFaculty(3001,8,500);
-        f4.displaypart();
+    public static void main(String[] a) {
+        TwoBHK t1=new TwoBHK(5500,25000,200000,4500);
+        TwoBHK t2=new TwoBHK(6500,50000,500000,6500);
+        TwoBHK t3=new TwoBHK(5500,25000,800000,4500);
+        t1.show();
+        t2.show();
+        t3.show();
+        System.out.println("Total amount of all flats="+(t1.price+t2.price+t3.price));
+
 
     }
 
 }
-
-
